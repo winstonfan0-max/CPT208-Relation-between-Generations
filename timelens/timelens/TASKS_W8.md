@@ -196,7 +196,7 @@ git merge memberA-ui
 | LocalStorage数据持久化 | 组员A | ✅ |
 | 3D展示正常 | 组员B | ✅ |
 | 硬件Demo道具准备 | 组员B | ☐ |
-| GitHub Pages Portfolio | 组员C | ☐ |
+| GitHub Pages Portfolio | 组员C | ✅ |
 | 2个Personas | 组员C | ✅ |
 | User Journey Map | 组员C | ✅ |
 | Design Alternatives文档 | 组员C | ✅ |
