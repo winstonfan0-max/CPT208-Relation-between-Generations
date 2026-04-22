@@ -314,8 +314,10 @@
       return pct(subset.filter((d) => d.taskSuccess).length, subset.length);
     }
 
-    function randomAge18To22() {
-      return 18 + Math.floor(Math.random() * 5);
+    function fallbackAgeByRole(role) {
+      if (role === 'Grandparent') return 68;
+      if (role === 'Parent') return 45;
+      return 15;
     }
 
     async function renderSurveyDashboard() {
@@ -408,7 +410,8 @@
 
         const body = document.getElementById('sample-table-body');
         body.innerHTML = data.slice(0, 16).map((item) => {
-          const age = Number(item.age) >= 18 && Number(item.age) <= 22 ? Number(item.age) : randomAge18To22();
+          const parsedAge = Number(item.age);
+          const age = Number.isFinite(parsedAge) && parsedAge > 0 ? parsedAge : fallbackAgeByRole(item.role);
           return `
           <tr>
             <td>${item.id}</td>
