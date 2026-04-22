@@ -314,15 +314,9 @@
       return pct(subset.filter((d) => d.taskSuccess).length, subset.length);
     }
 
-    function fallbackAgeByRole(role) {
-      if (role === 'Grandparent') return 68;
-      if (role === 'Parent') return 45;
-      return 15;
-    }
-
     async function renderSurveyDashboard() {
       try {
-        const response = await fetch('assets/data/survey-sample-50.json');
+        const response = await fetch('assets/data/survey-sample-16.json');
         const data = await response.json();
 
         const total = data.length;
@@ -411,7 +405,7 @@
         const body = document.getElementById('sample-table-body');
         body.innerHTML = data.slice(0, 16).map((item) => {
           const parsedAge = Number(item.age);
-          const age = Number.isFinite(parsedAge) && parsedAge > 0 ? parsedAge : fallbackAgeByRole(item.role);
+          const age = Number.isFinite(parsedAge) && parsedAge > 0 ? parsedAge : '-';
           return `
           <tr>
             <td>${item.id}</td>
