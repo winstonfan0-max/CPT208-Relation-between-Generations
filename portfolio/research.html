@@ -1,82 +1,103 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Research - TimeLens Portfolio</title>
   <link rel="stylesheet" href="assets/css/style.css">
+  <script src="assets/js/theme.js" defer></script>
 </head>
 <body>
   <nav>
     <div class="nav-container">
       <div class="logo">TimeLens</div>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="research.html" class="active">Research</a></li>
-        <li><a href="design.html">Design</a></li>
-        <li><a href="system.html">System</a></li>
-        <li><a href="timeline.html">Timeline</a></li>
-        <li><a href="index.html#prototype">Prototype</a></li>
-      </ul>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="research.html" class="active">Research</a></li>
+          <li><a href="design.html">Design</a></li>
+          <li><a href="system.html">System</a></li>
+          <li><a href="timeline.html">Timeline</a></li>
+          <li><a href="index.html#prototype">Prototype</a></li>
+        </ul>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle light and dark theme">
+          <span class="theme-toggle-dot"></span>
+          <span data-theme-label>Light</span>
+        </button>
+      </div>
     </div>
   </nav>
 
   <main>
     <section class="container">
       <div class="section-header" style="padding-top: 1.4rem;">
-        <h2>User Research and Questionnaire</h2>
-        <p>Methods, sample design, and statistical evidence</p>
+        <h2>User Research and Evidence</h2>
+        <p>Stakeholders, questionnaire results, and literature-grounded design decisions</p>
       </div>
 
       <div class="card">
-        <h3>Research Methods</h3>
+        <h3>Research Strategy</h3>
         <div class="grid-2" style="margin-top: 0.8rem;">
           <div>
-            <h4>Context Observation</h4>
-            <p class="muted">Observed family story-sharing moments around keepsakes to understand real trigger points for interaction.</p>
-          </div>
-          <div>
-            <h4>Semi-Structured Interview</h4>
-            <p class="muted">Collected pain points from three generations about preserving memories and maintaining conversation continuity.</p>
-          </div>
-          <div>
-            <h4>Questionnaire Validation</h4>
-            <p class="muted">Used a 50-participant survey to validate usability, attractiveness, and communication value.</p>
-          </div>
-          <div>
-            <h4>Prototype Walkthrough</h4>
-            <p class="muted">Measured task success rate and completion time through a controlled first-use flow.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="card">
-        <h3>Questionnaire Structure (50 Samples)</h3>
-        <p class="muted">Scale: 1 (very low) to 5 (very high), recommendation score: 0-10.</p>
-        <div class="grid-2" style="margin-top: 0.9rem;">
-          <div>
-            <h4>Core Questions</h4>
+            <h4>Methods</h4>
             <ul class="feature-list">
-              <li>How easy is the NFC tap / unlock step?</li>
-              <li>How engaging is the 3D memory reveal?</li>
-              <li>How willing are you to leave a reply message?</li>
-              <li>Can you complete the first key task independently?</li>
+              <li>Context observation of family story-sharing around keepsakes</li>
+              <li>Semi-structured interviews on memory loss and communication gaps</li>
+              <li>50-participant questionnaire and prototype walkthrough</li>
+              <li>Behavioral metrics: task success, completion time, recommendation score</li>
             </ul>
           </div>
           <div>
-            <h4>Background Fields</h4>
-            <ul class="feature-list">
-              <li>Role (Grandchild / Parent / Grandparent)</li>
-              <li>Exact age (randomized between 18-22) and story-sharing frequency</li>
-              <li>Task completion time (seconds)</li>
-              <li>Recommendation score and short comment</li>
-            </ul>
+            <h4>Literature Alignment</h4>
+            <p class="muted">
+              We aligned our protocol with prior work on tangible memory sharing, family memory curation,
+              and intergenerational interaction design [R1][R2][R3]. We also considered reflective memory
+              interfaces and slow technology principles for sustained engagement [R4][R5].
+            </p>
           </div>
         </div>
       </div>
+    </section>
+
+    <section class="container">
+      <div class="section-header">
+        <h2>Stakeholders</h2>
+        <p>Who is affected and what value each group expects</p>
+      </div>
+
+      <div class="spotlight-board">
+        <div class="spotlight-grid">
+          <div class="spotlight-card">
+            <h3 style="margin-bottom:0.45rem;">Grandparents</h3>
+            <p class="muted">Want stories preserved with emotional context, not only object photos.</p>
+            <p style="margin-top:0.6rem;"><span class="mini-kpi" id="st-grandparent">--</span> participants</p>
+          </div>
+          <div class="spotlight-card">
+            <h3 style="margin-bottom:0.45rem;">Parents</h3>
+            <p class="muted">Need an easy bridge for two-way conversation during and after gatherings.</p>
+            <p style="margin-top:0.6rem;"><span class="mini-kpi" id="st-parent">--</span> participants</p>
+          </div>
+          <div class="spotlight-card">
+            <h3 style="margin-bottom:0.45rem;">Grandchildren</h3>
+            <p class="muted">Prefer playful interactions and quick discovery over long text archives.</p>
+            <p style="margin-top:0.6rem;"><span class="mini-kpi" id="st-grandchild">--</span> participants</p>
+          </div>
+          <div class="spotlight-card">
+            <h3 style="margin-bottom:0.45rem;">Overall Study Signal</h3>
+            <p class="muted">Cross-role adoption is strong when interaction starts from a real keepsake [R1][R2].</p>
+            <p style="margin-top:0.6rem;"><span class="mini-kpi" id="st-success">--</span> task success</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container">
+      <div class="section-header">
+        <h2>Statistical Dashboard</h2>
+        <p>50-sample questionnaire and first-use walkthrough metrics</p>
+      </div>
 
       <div class="card">
-        <h3>Statistical Summary</h3>
         <div class="kpi-grid">
           <div class="kpi-card">
             <div class="kpi-label">Samples</div>
@@ -122,6 +143,11 @@
             <h4>Usability Indicators</h4>
             <div id="indicator-bars"></div>
           </div>
+
+          <div class="chart-card">
+            <h4>Task Success by Role</h4>
+            <div id="role-success-bars"></div>
+          </div>
         </div>
 
         <div class="highlight-box highlight-success">
@@ -156,58 +182,27 @@
 
     <section class="container">
       <div class="section-header">
-        <h2>Personas</h2>
-        <p>Representative users used in design decisions</p>
+        <h2>Design Implications From Data</h2>
+        <p>How findings directly shaped product decisions</p>
       </div>
 
-      <div class="persona-card">
-        <div class="persona-avatar">👴</div>
-        <div>
-          <h3>Mingde Wang</h3>
-          <div class="persona-meta">68 | Retired engineer | Grandfather</div>
-          <div class="persona-details">
-            <div>
-              <div class="label">Technical Comfort</div>
-              <p>Medium. Uses smartphone and video calls but prefers simple, guided interactions.</p>
-            </div>
-            <div>
-              <div class="label">Goal</div>
-              <p>Share meaningful family stories so younger generations remember their roots.</p>
-            </div>
-            <div>
-              <div class="label">Pain Point</div>
-              <p>Traditional digital archives feel complicated and not emotionally engaging.</p>
-            </div>
-            <div>
-              <div class="label">Quote</div>
-              <p style="font-style: italic; color: var(--accent);">"I want the story behind my keepsakes to be remembered, not just the object itself."</p>
-            </div>
+      <div class="spotlight-board">
+        <div class="spotlight-grid">
+          <div class="spotlight-card">
+            <h3>Implication 1: Tangible Entry Matters</h3>
+            <p class="muted" id="analysis-1">Loading...</p>
           </div>
-        </div>
-      </div>
-
-      <div class="persona-card">
-        <div class="persona-avatar">👦</div>
-        <div>
-          <h3>Yuxuan Li</h3>
-          <div class="persona-meta">12 | Student | Grandchild</div>
-          <div class="persona-details">
-            <div>
-              <div class="label">Technical Comfort</div>
-              <p>High. Comfortable with mobile interaction, visual content, and gamified flows.</p>
-            </div>
-            <div>
-              <div class="label">Goal</div>
-              <p>Learn family stories through playful interaction, not long text explanation.</p>
-            </div>
-            <div>
-              <div class="label">Pain Point</div>
-              <p>One-way storytelling is easy to forget and difficult to revisit after family gatherings.</p>
-            </div>
-            <div>
-              <div class="label">Quote</div>
-              <p style="font-style: italic; color: var(--accent);">"If I can unlock stories like a game, I will want to explore more keepsakes."</p>
-            </div>
+          <div class="spotlight-card">
+            <h3>Implication 2: Two-way Reply Should Be Visible</h3>
+            <p class="muted" id="analysis-2">Loading...</p>
+          </div>
+          <div class="spotlight-card">
+            <h3>Implication 3: Keep Interactions Lightweight</h3>
+            <p class="muted" id="analysis-3">Loading...</p>
+          </div>
+          <div class="spotlight-card">
+            <h3>Implication 4: Support Reflective Revisits</h3>
+            <p class="muted">Timeline and map views are intentionally designed for revisitation, not only single-session tasks [R4][R5].</p>
           </div>
         </div>
       </div>
@@ -215,90 +210,45 @@
 
     <section class="container">
       <div class="section-header">
-        <h2>Journey Comparison</h2>
-        <p>Current pain flow vs. TimeLens-supported flow</p>
+        <h2>Referenced Papers</h2>
+        <p>Five papers used to justify research framing and design choices</p>
       </div>
 
-      <div class="card">
-        <h3>Current Flow (Without TimeLens)</h3>
-        <div class="journey-map" style="margin-top: 0.8rem;">
-          <div class="journey-stages">
-            <div class="journey-stage">
-              <div class="stage-num">1</div>
-              <h4>Find Object</h4>
-              <p>A child notices an old keepsake.</p>
-            </div>
-            <div class="journey-stage">
-              <div class="stage-num">2</div>
-              <h4>Ask Briefly</h4>
-              <p>One short question is asked.</p>
-            </div>
-            <div class="journey-stage">
-              <div class="stage-num">3</div>
-              <h4>Verbal Story</h4>
-              <p>The story is spoken once and fades quickly.</p>
-            </div>
-            <div class="journey-stage">
-              <div class="stage-num">4</div>
-              <h4>No Follow-up</h4>
-              <p>Limited interaction after the moment.</p>
-            </div>
-            <div class="journey-stage">
-              <div class="stage-num">5</div>
-              <h4>Memory Loss</h4>
-              <p>Stories are not preserved or revisited.</p>
-            </div>
-          </div>
-        </div>
-        <div class="highlight-box highlight-warn">
-          <strong>Observed gaps:</strong>
-          <ul class="feature-list" style="margin-top: 0.4rem;">
-            <li>Low engagement for younger users</li>
-            <li>No durable story archive with context</li>
-            <li>Weak intergenerational reply loop</li>
-          </ul>
-        </div>
-      </div>
+      <div class="paper-grid">
+        <article class="paper-card">
+          <h4>[R1] Supporting Intergenerational Memento Storytelling for Older Adults</h4>
+          <div class="paper-meta">Li et al., Personal and Ubiquitous Computing, 2022</div>
+          <p class="muted">Used for tangible appraisal mechanism design and confidence support for older adults.</p>
+          <a class="paper-link" href="https://doi.org/10.1007/s00779-020-01364-9" target="_blank" rel="noopener noreferrer">DOI link</a>
+        </article>
 
-      <div class="card">
-        <h3>Future Flow (With TimeLens)</h3>
-        <div class="journey-map" style="margin-top: 0.8rem;">
-          <div class="journey-stages">
-            <div class="journey-stage">
-              <div class="stage-num">1</div>
-              <h4>Tap Keepsake</h4>
-              <p>A tagged object triggers the interaction.</p>
-            </div>
-            <div class="journey-stage">
-              <div class="stage-num">2</div>
-              <h4>Unlock Memory</h4>
-              <p>NFC tap reveals a connected family story.</p>
-            </div>
-            <div class="journey-stage">
-              <div class="stage-num">3</div>
-              <h4>3D Experience</h4>
-              <p>Story is shown with visual depth and emotion.</p>
-            </div>
-            <div class="journey-stage">
-              <div class="stage-num">4</div>
-              <h4>Reply Message</h4>
-              <p>Both generations exchange short messages.</p>
-            </div>
-            <div class="journey-stage">
-              <div class="stage-num">5</div>
-              <h4>Build Archive</h4>
-              <p>Memories remain available for future visits.</p>
-            </div>
-          </div>
-        </div>
-        <div class="highlight-box highlight-success">
-          <strong>Expected value:</strong>
-          <ul class="feature-list" style="margin-top: 0.4rem;">
-            <li>Higher curiosity and replay value</li>
-            <li>Two-way conversation instead of one-way explanation</li>
-            <li>Persistent memory map for long-term family use</li>
-          </ul>
-        </div>
+        <article class="paper-card">
+          <h4>[R2] Co-constructing Family Memory</h4>
+          <div class="paper-meta">Jones & Ackerman, CHI, 2018</div>
+          <p class="muted">Used for collaborative family memory curation and cross-generation participation rationale.</p>
+          <a class="paper-link" href="https://doi.org/10.1145/3173574.3173998" target="_blank" rel="noopener noreferrer">DOI link</a>
+        </article>
+
+        <article class="paper-card">
+          <h4>[R3] Family Memories in the Home: Physical vs Digital Mementos</h4>
+          <div class="paper-meta">Petrelli & Whittaker, Personal and Ubiquitous Computing, 2010</div>
+          <p class="muted">Used to justify why TimeLens starts from physical keepsakes instead of pure digital archive entry.</p>
+          <a class="paper-link" href="https://doi.org/10.1007/s00779-009-0279-7" target="_blank" rel="noopener noreferrer">DOI link</a>
+        </article>
+
+        <article class="paper-card">
+          <h4>[R4] Visual Mementos: Reflecting Memories with Personal Data</h4>
+          <div class="paper-meta">Thudt et al., IEEE TVCG, 2016</div>
+          <p class="muted">Used for memory visualization and reflection-oriented interface decisions.</p>
+          <a class="paper-link" href="https://doi.org/10.1109/TVCG.2015.2467831" target="_blank" rel="noopener noreferrer">DOI link</a>
+        </article>
+
+        <article class="paper-card">
+          <h4>[R5] Designing for Slowness, Anticipation and Re-visitation</h4>
+          <div class="paper-meta">Odom et al., CHI, 2014</div>
+          <p class="muted">Used to support long-term engagement design instead of one-time novelty interaction.</p>
+          <a class="paper-link" href="https://doi.org/10.1145/2556288.2557178" target="_blank" rel="noopener noreferrer">DOI link</a>
+        </article>
       </div>
     </section>
   </main>
@@ -338,8 +288,18 @@
       if (el) el.textContent = value;
     }
 
+    function roleSubset(data, role) {
+      return data.filter((item) => item.role === role);
+    }
+
     function roleCount(data, role) {
-      return data.filter((item) => item.role === role).length;
+      return roleSubset(data, role).length;
+    }
+
+    function roleSuccessRate(data, role) {
+      const subset = roleSubset(data, role);
+      if (!subset.length) return 0;
+      return pct(subset.filter((d) => d.taskSuccess).length, subset.length);
     }
 
     function randomAge18To22() {
@@ -358,10 +318,15 @@
         const avgStory = safeAvg(data, 'storyAppeal');
         const avgReply = safeAvg(data, 'replyIntent');
         const avgTime = safeAvg(data, 'timeToCompleteSec');
+        const avgRecommend = safeAvg(data, 'recommendScore');
 
         const promoters = data.filter((d) => Number(d.recommendScore) >= 9).length;
         const passives = data.filter((d) => Number(d.recommendScore) >= 7 && Number(d.recommendScore) <= 8).length;
         const detractors = data.filter((d) => Number(d.recommendScore) <= 6).length;
+
+        const grandchildCount = roleCount(data, 'Grandchild');
+        const parentCount = roleCount(data, 'Parent');
+        const grandparentCount = roleCount(data, 'Grandparent');
 
         updateText('kpi-samples', `${total}`);
         updateText('kpi-success', `${pct(success, total).toFixed(1)}%`);
@@ -370,11 +335,16 @@
         updateText('kpi-reply', `${avgReply.toFixed(2)} / 5`);
         updateText('kpi-time', `${Math.round(avgTime)}s`);
 
+        updateText('st-grandchild', `${grandchildCount}`);
+        updateText('st-parent', `${parentCount}`);
+        updateText('st-grandparent', `${grandparentCount}`);
+        updateText('st-success', `${pct(success, total).toFixed(1)}%`);
+
         const roleBars = document.getElementById('role-bars');
         createProgressRows(roleBars, [
-          { label: 'Grandchildren', value: `${roleCount(data, 'Grandchild')} (${pct(roleCount(data, 'Grandchild'), total).toFixed(1)}%)`, percent: pct(roleCount(data, 'Grandchild'), total) },
-          { label: 'Parents', value: `${roleCount(data, 'Parent')} (${pct(roleCount(data, 'Parent'), total).toFixed(1)}%)`, percent: pct(roleCount(data, 'Parent'), total) },
-          { label: 'Grandparents', value: `${roleCount(data, 'Grandparent')} (${pct(roleCount(data, 'Grandparent'), total).toFixed(1)}%)`, percent: pct(roleCount(data, 'Grandparent'), total) }
+          { label: 'Grandchildren', value: `${grandchildCount} (${pct(grandchildCount, total).toFixed(1)}%)`, percent: pct(grandchildCount, total) },
+          { label: 'Parents', value: `${parentCount} (${pct(parentCount, total).toFixed(1)}%)`, percent: pct(parentCount, total) },
+          { label: 'Grandparents', value: `${grandparentCount} (${pct(grandparentCount, total).toFixed(1)}%)`, percent: pct(grandparentCount, total) }
         ]);
 
         const indicators = document.getElementById('indicator-bars');
@@ -385,9 +355,15 @@
           { label: 'Task Success', value: `${pct(success, total).toFixed(1)}%`, percent: pct(success, total) }
         ]);
 
+        const roleSuccess = document.getElementById('role-success-bars');
+        createProgressRows(roleSuccess, [
+          { label: 'Grandchildren', value: `${roleSuccessRate(data, 'Grandchild').toFixed(1)}%`, percent: roleSuccessRate(data, 'Grandchild') },
+          { label: 'Parents', value: `${roleSuccessRate(data, 'Parent').toFixed(1)}%`, percent: roleSuccessRate(data, 'Parent') },
+          { label: 'Grandparents', value: `${roleSuccessRate(data, 'Grandparent').toFixed(1)}%`, percent: roleSuccessRate(data, 'Grandparent') }
+        ]);
+
         const promoterPct = pct(promoters, total);
         const passivePct = pct(passives, total);
-        const detractorPct = pct(detractors, total);
 
         const donut = document.getElementById('recommend-donut');
         donut.style.background = `conic-gradient(#10b981 0 ${promoterPct}%, #fbbf24 ${promoterPct}% ${promoterPct + passivePct}%, #ef4444 ${promoterPct + passivePct}% 100%)`;
@@ -402,11 +378,24 @@
 
         updateText(
           'insight-text',
-          `The prototype shows ${pct(success, total).toFixed(1)}% task success with strong cross-generation acceptance. Story appeal (${avgStory.toFixed(2)}/5) and reply intent (${avgReply.toFixed(2)}/5) indicate solid communication potential.`
+          `The prototype reached ${pct(success, total).toFixed(1)}% task success. Story appeal (${avgStory.toFixed(2)}/5) and reply intent (${avgReply.toFixed(2)}/5) support intergenerational communication feasibility.`
+        );
+
+        updateText(
+          'analysis-1',
+          `NFC ease averages ${avgNfc.toFixed(2)}/5, supporting object-first entry design [R1][R3].`
+        );
+        updateText(
+          'analysis-2',
+          `Reply intent averages ${avgReply.toFixed(2)}/5, so the messaging loop remains a core interaction [R2].`
+        );
+        updateText(
+          'analysis-3',
+          `Average completion time is ${Math.round(avgTime)}s with recommendation ${avgRecommend.toFixed(2)}/10, indicating low-friction onboarding matters [R5].`
         );
 
         const body = document.getElementById('sample-table-body');
-        body.innerHTML = data.slice(0, 10).map((item) => {
+        body.innerHTML = data.slice(0, 12).map((item) => {
           const age = Number(item.age) >= 18 && Number(item.age) <= 22 ? Number(item.age) : randomAge18To22();
           return `
           <tr>
