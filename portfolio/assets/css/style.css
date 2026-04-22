@@ -36,6 +36,12 @@ body {
   min-height: 100vh;
 }
 
+.scroll-x {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+}
+
 nav {
   position: fixed;
   top: 0;
@@ -353,6 +359,7 @@ main {
   width: 100%;
   border-collapse: collapse;
   margin-top: 0.7rem;
+  min-width: 760px;
 }
 
 .comparison-table th,
@@ -848,6 +855,10 @@ footer a {
 }
 
 @media (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
+
   nav {
     padding: 0.9rem 1rem;
   }
@@ -886,6 +897,25 @@ footer a {
 
   .timeline-table {
     min-width: 840px;
+  }
+
+  .crazy8s-scroll {
+    padding-bottom: 0.4rem;
+  }
+
+  .crazy8s-scroll .crazy8s-grid {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(170px, 1fr);
+    grid-template-columns: none;
+    grid-template-rows: repeat(2, auto);
+    width: max-content;
+    gap: 0.75rem;
+  }
+
+  .crazy8s-scroll .crazy8-item {
+    aspect-ratio: auto;
+    min-height: 220px;
   }
 }
 
