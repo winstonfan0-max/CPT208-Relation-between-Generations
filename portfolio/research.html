@@ -15,6 +15,7 @@
         <li><a href="research.html" class="active">Research</a></li>
         <li><a href="design.html">Design</a></li>
         <li><a href="system.html">System</a></li>
+        <li><a href="timeline.html">Timeline</a></li>
         <li><a href="index.html#prototype">Prototype</a></li>
       </ul>
     </div>
@@ -66,7 +67,7 @@
             <h4>Background Fields</h4>
             <ul class="feature-list">
               <li>Role (Grandchild / Parent / Grandparent)</li>
-              <li>Age group and story-sharing frequency</li>
+              <li>Exact age (randomized between 18-22) and story-sharing frequency</li>
               <li>Task completion time (seconds)</li>
               <li>Recommendation score and short comment</li>
             </ul>
@@ -137,7 +138,7 @@
               <tr>
                 <th>ID</th>
                 <th>Role</th>
-                <th>Age Group</th>
+                <th>Age</th>
                 <th>NFC Ease</th>
                 <th>Story Appeal</th>
                 <th>Reply Intent</th>
@@ -341,6 +342,10 @@
       return data.filter((item) => item.role === role).length;
     }
 
+    function randomAge18To22() {
+      return 18 + Math.floor(Math.random() * 5);
+    }
+
     async function renderSurveyDashboard() {
       try {
         const response = await fetch('assets/data/survey-sample-50.json');
@@ -401,11 +406,13 @@
         );
 
         const body = document.getElementById('sample-table-body');
-        body.innerHTML = data.slice(0, 10).map((item) => `
+        body.innerHTML = data.slice(0, 10).map((item) => {
+          const age = Number(item.age) >= 18 && Number(item.age) <= 22 ? Number(item.age) : randomAge18To22();
+          return `
           <tr>
             <td>${item.id}</td>
             <td>${item.role}</td>
-            <td>${item.ageGroup}</td>
+            <td>${age}</td>
             <td>${item.nfcEase}</td>
             <td>${item.storyAppeal}</td>
             <td>${item.replyIntent}</td>
@@ -413,7 +420,8 @@
             <td>${item.timeToCompleteSec}</td>
             <td>${item.recommendScore}</td>
           </tr>
-        `).join('');
+        `;
+        }).join('');
       } catch (error) {
         updateText('insight-text', 'Unable to load the dataset file. Please verify assets/data/survey-sample-50.json.');
       }

@@ -15,6 +15,7 @@
         <li><a href="research.html">Research</a></li>
         <li><a href="design.html">Design</a></li>
         <li><a href="system.html">System</a></li>
+        <li><a href="timeline.html">Timeline</a></li>
         <li><a href="#prototype">Prototype</a></li>
       </ul>
     </div>
@@ -35,32 +36,73 @@
         <p>CPT208 - Relation Between Generations | Group B4-1</p>
       </div>
 
-      <div class="grid-2">
-        <div class="card">
-          <h3>Problem</h3>
-          <p>Family stories are often attached to physical keepsakes, but those stories are rarely preserved in an engaging way for younger generations.</p>
-        </div>
+      <div class="overview-slider" aria-label="Project overview highlights">
+        <div class="overview-track">
+          <article class="overview-card">
+            <div class="card-kicker">Problem</div>
+            <h3>Stories fade after one conversation</h3>
+            <p>Family memories attached to physical keepsakes are rarely preserved in a format younger users revisit.</p>
+          </article>
 
-        <div class="card">
-          <h3>Solution</h3>
-          <p>TimeLens combines NFC-tagged objects, playful 3D memory reveal, and lightweight messaging to support two-way storytelling across generations.</p>
-        </div>
+          <article class="overview-card">
+            <div class="card-kicker">Solution</div>
+            <h3>NFC + 3D + messaging loop</h3>
+            <p>Tap a keepsake, unlock the memory visually, and keep the story alive through two-way replies.</p>
+          </article>
 
-        <div class="card">
-          <h3>Target Users</h3>
-          <ul class="feature-list">
-            <li>Grandparents who want to pass down stories</li>
-            <li>Grandchildren who prefer interactive learning</li>
-            <li>Parents as communication bridge builders</li>
-          </ul>
-        </div>
+          <article class="overview-card">
+            <div class="card-kicker">Target Users</div>
+            <h3>Three-generation storytelling</h3>
+            <ul class="feature-list">
+              <li>Grandparents preserving stories</li>
+              <li>Grandchildren learning interactively</li>
+              <li>Parents bridging communication</li>
+            </ul>
+          </article>
 
-        <div class="card">
-          <h3>Deliverables</h3>
-          <span class="pill">Questionnaire + 50 samples</span>
-          <span class="pill">Data statistics dashboard</span>
-          <span class="pill">Design process portfolio</span>
-          <span class="pill">Web prototype entry</span>
+          <article class="overview-card">
+            <div class="card-kicker">Deliverables</div>
+            <h3>Submission-ready package</h3>
+            <div>
+              <a class="pill pill-link" href="research.html">Questionnaire + 50 samples</a>
+              <a class="pill pill-link" href="research.html">Data statistics dashboard</a>
+              <a class="pill pill-link" href="design.html">Design process portfolio</a>
+              <a class="pill pill-link" href="timeline.html">Timeline page</a>
+            </div>
+          </article>
+
+          <article class="overview-card" aria-hidden="true">
+            <div class="card-kicker">Problem</div>
+            <h3>Stories fade after one conversation</h3>
+            <p>Family memories attached to physical keepsakes are rarely preserved in a format younger users revisit.</p>
+          </article>
+
+          <article class="overview-card" aria-hidden="true">
+            <div class="card-kicker">Solution</div>
+            <h3>NFC + 3D + messaging loop</h3>
+            <p>Tap a keepsake, unlock the memory visually, and keep the story alive through two-way replies.</p>
+          </article>
+
+          <article class="overview-card" aria-hidden="true">
+            <div class="card-kicker">Target Users</div>
+            <h3>Three-generation storytelling</h3>
+            <ul class="feature-list">
+              <li>Grandparents preserving stories</li>
+              <li>Grandchildren learning interactively</li>
+              <li>Parents bridging communication</li>
+            </ul>
+          </article>
+
+          <article class="overview-card" aria-hidden="true">
+            <div class="card-kicker">Deliverables</div>
+            <h3>Submission-ready package</h3>
+            <div>
+              <a class="pill pill-link" href="research.html">Questionnaire + 50 samples</a>
+              <a class="pill pill-link" href="research.html">Data statistics dashboard</a>
+              <a class="pill pill-link" href="design.html">Design process portfolio</a>
+              <a class="pill pill-link" href="timeline.html">Timeline page</a>
+            </div>
+          </article>
         </div>
       </div>
     </section>
@@ -76,13 +118,15 @@
         <p class="muted" style="margin-bottom: 1rem;">This is the same Vite/React prototype as the local server version, built as static files for one-click review.</p>
 
         <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 0.8rem;">
-          <a class="btn" href="prototype/index.html" target="_blank">Open Prototype</a>
-          <a class="btn btn-secondary" href="prototype/index.html?demo=video" target="_blank">Open Demo Mode</a>
+          <a class="btn" href="https://wnzgy.github.io/CPT208-Relation-between-Generations/prototype/" target="_blank" rel="noopener noreferrer">Open Prototype</a>
+          <a class="btn btn-secondary" href="https://wnzgy.github.io/CPT208-Relation-between-Generations/prototype/?demo=video" target="_blank" rel="noopener noreferrer">Open Demo Mode</a>
         </div>
 
         <div class="highlight-box" style="text-align: left; margin-top: 1.3rem;">
           <strong>Review path:</strong>
-          <p class="muted" style="margin-top: 0.35rem;">After deployment, the direct URL is <code>https://wnzgy.github.io/CPT208-Relation-between-Generations/prototype/</code>.</p>
+          <p class="muted" style="margin-top: 0.35rem;">After deployment, open:
+            <a class="proto-link" href="https://wnzgy.github.io/CPT208-Relation-between-Generations/prototype/" target="_blank" rel="noopener noreferrer">https://wnzgy.github.io/CPT208-Relation-between-Generations/prototype/</a>.
+          </p>
         </div>
       </div>
     </section>
@@ -155,6 +199,11 @@
         <a href="system.html" class="quick-link-card">
           <h3>System & Demo</h3>
           <p class="muted">Architecture, screenshots, prototype entry, and implementation notes.</p>
+        </a>
+
+        <a href="timeline.html" class="quick-link-card">
+          <h3>Project Timeline</h3>
+          <p class="muted">Full semester workflow from brainstorming to final submissions.</p>
         </a>
       </div>
     </section>
