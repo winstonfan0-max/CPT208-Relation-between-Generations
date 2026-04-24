@@ -1112,6 +1112,11 @@ export default function App() {
     blockScanTemporarily();
   };
 
+  const handleScanActionZonePointerDown = (event) => {
+    event?.stopPropagation?.();
+    blockScanTemporarily();
+  };
+
   const handleOpenNfcTools = (event) => {
     event?.preventDefault?.();
     event?.stopPropagation?.();
@@ -1240,7 +1245,7 @@ export default function App() {
                   </p>
                 </div>
 
-                <div onClick={() => handleSimulateScan(selectedScanId)} className="relative flex h-44 w-44 cursor-pointer items-center justify-center transition-transform active:scale-90 sm:h-52 sm:w-52">
+                <div onClick={() => handleSimulateScan(selectedScanId)} className="relative z-10 flex h-44 w-44 cursor-pointer items-center justify-center transition-transform active:scale-90 sm:h-52 sm:w-52">
                   <div className="absolute inset-0 rounded-full bg-indigo-500/10 animate-ping"></div>
                   <div className="relative flex h-36 w-36 flex-col items-center justify-center gap-3 rounded-full border border-slate-50 bg-white shadow-2xl sm:h-40 sm:w-40 sm:gap-4">
                     <Nfc size={38} className="text-indigo-600" />
@@ -1248,16 +1253,24 @@ export default function App() {
                   </div>
                 </div>
 
-                <div className="grid w-full max-w-[360px] grid-cols-1 gap-3 sm:grid-cols-2">
+                <div
+                  onPointerDown={handleScanActionZonePointerDown}
+                  className="relative z-30 grid w-full max-w-[360px] grid-cols-1 gap-3 sm:grid-cols-2"
+                >
                   <button
                     type="button"
                     onPointerDown={handleNfcToolsPointerDown}
                     onClick={handleOpenNfcTools}
-                    className="flex items-center justify-center gap-2 rounded-full border border-slate-100 bg-white px-5 py-4 text-[10px] font-black uppercase tracking-[0.22em] text-slate-700 shadow-sm transition-all active:scale-95"
+                    className="w-full touch-manipulation select-none flex items-center justify-center gap-2 rounded-full border border-slate-100 bg-white px-5 py-4 text-[10px] font-black uppercase tracking-[0.22em] text-slate-700 shadow-sm transition-all active:scale-[0.98]"
                   >
                     <Nfc size={14} /> NFC Tools
                   </button>
-                  <button onClick={() => setView('hunt')} className="flex items-center justify-center gap-2 rounded-full border border-indigo-50 bg-white px-5 py-4 text-[10px] font-black uppercase tracking-[0.22em] text-indigo-600 shadow-[0_4px_15px_rgba(79,70,229,0.1)] transition-all active:scale-95">
+                  <button
+                    type="button"
+                    onPointerDown={handleScanActionZonePointerDown}
+                    onClick={() => setView('hunt')}
+                    className="w-full touch-manipulation select-none flex items-center justify-center gap-2 rounded-full border border-indigo-50 bg-white px-5 py-4 text-[10px] font-black uppercase tracking-[0.22em] text-indigo-600 shadow-[0_4px_15px_rgba(79,70,229,0.1)] transition-all active:scale-[0.98]"
+                  >
                     <Map size={14} /> Map
                   </button>
                 </div>
