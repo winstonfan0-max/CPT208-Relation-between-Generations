@@ -798,6 +798,7 @@ export default function App() {
   const [videoCaptionsVisible, setVideoCaptionsVisible] = useState(DEMO_CONFIG.video ? DEMO_CONFIG.captionsVisible : false);
   const [toast, setToast] = useState('');
   const toastTimerRef = useRef();
+  const suppressScanUntilRef = useRef(0);
 
   const activeVideoScene = videoSceneKey ? VIDEO_SCENE_LOOKUP[videoSceneKey] || VIDEO_SCENE_LOOKUP.cover : null;
   const videoSceneIndex = activeVideoScene ? VIDEO_SCENES.findIndex((scene) => scene.key === activeVideoScene.key) : -1;
@@ -994,6 +995,9 @@ export default function App() {
 
 
   const handleSimulateScan = (targetId = selectedScanId) => {
+    if (Date.now() < suppressScanUntilRef.current) {
+      return;
+    }
     if (!targetId || !memories[targetId]) return;
     setView('scanning');
     setTimeout(() => {
@@ -1097,6 +1101,22 @@ export default function App() {
     setSelectedScanId(memoryId);
     setView('scan');
     showToast(`Selected for NFC tap: ${memories[memoryId].title}`);
+  };
+
+  const blockScanTemporarily = (durationMs = 1100) => {
+    suppressScanUntilRef.current = Date.now() + durationMs;
+  };
+
+  const handleNfcToolsPointerDown = (event) => {
+    event?.stopPropagation?.();
+    blockScanTemporarily();
+  };
+
+  const handleOpenNfcTools = (event) => {
+    event?.preventDefault?.();
+    event?.stopPropagation?.();
+    blockScanTemporarily();
+    setNfcToolsOpen(true);
   };
 
   const handleDetectedScan = (memoryId) => {
@@ -1229,7 +1249,12 @@ export default function App() {
                 </div>
 
                 <div className="grid w-full max-w-[360px] grid-cols-1 gap-3 sm:grid-cols-2">
-                  <button onClick={() => setNfcToolsOpen(true)} className="flex items-center justify-center gap-2 rounded-full border border-slate-100 bg-white px-5 py-4 text-[10px] font-black uppercase tracking-[0.22em] text-slate-700 shadow-sm transition-all active:scale-95">
+                  <button
+                    type="button"
+                    onPointerDown={handleNfcToolsPointerDown}
+                    onClick={handleOpenNfcTools}
+                    className="flex items-center justify-center gap-2 rounded-full border border-slate-100 bg-white px-5 py-4 text-[10px] font-black uppercase tracking-[0.22em] text-slate-700 shadow-sm transition-all active:scale-95"
+                  >
                     <Nfc size={14} /> NFC Tools
                   </button>
                   <button onClick={() => setView('hunt')} className="flex items-center justify-center gap-2 rounded-full border border-indigo-50 bg-white px-5 py-4 text-[10px] font-black uppercase tracking-[0.22em] text-indigo-600 shadow-[0_4px_15px_rgba(79,70,229,0.1)] transition-all active:scale-95">
