@@ -1,16 +1,23 @@
-# AI Logs
+# AI Coding Logs
 
-如果你们在系统开发中使用了 AI coding，请把主要 prompt 和验证过程记录在这个文件夹中。
+This folder records the **primary AI prompts** used to implement core system components,
+as required by the CPT208 system submission guideline (`/ai-logs` for vibe coding evidence).
 
-## 这个文件夹当前的作用
-- 记录本次会话中新增加的 demo-support 改动
-- 提醒团队补回历史上用于生成核心组件的 prompt
+## Model Used
 
-## 你们还需要补的内容
-- 之前生成主系统结构、3D 组件、样式或交互逻辑时使用过的 prompt
-- 你们如何验证 AI 生成代码满足用户需求
-- 你们如何检查可访问性、偏差或逻辑问题
+- **Gemini 2.5 Flash** (Google Gemini)
+- Usage mode: code scaffolding, debugging support, and UI refinement suggestions
 
-建议每个会话一个 markdown 文件，例如：
-- `session-2026-04-06.md`
-- `session-2026-04-07.md`
+## What is documented here
+
+1. How the team split our own prototype design into implementation modules.
+2. The main prompts used for each core component.
+3. How generated code was verified against user requirements.
+4. Basic risk checks (mobile usability, accessibility, and logic consistency).
+
+## File Index
+
+- `core-component-prompts-gemini25flash.md`  
+  Main prompt log for each core module.
+- `session-2026-04-06.md`  
+  Session change summary and validation snapshot.

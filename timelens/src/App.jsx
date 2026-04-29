@@ -799,6 +799,8 @@ export default function App() {
   const [toast, setToast] = useState('');
   const toastTimerRef = useRef();
   const suppressScanUntilRef = useRef(0);
+  const scanInFlightRef = useRef(false);
+  const scanTimerRef = useRef(null);
 
   const activeVideoScene = videoSceneKey ? VIDEO_SCENE_LOOKUP[videoSceneKey] || VIDEO_SCENE_LOOKUP.cover : null;
   const videoSceneIndex = activeVideoScene ? VIDEO_SCENES.findIndex((scene) => scene.key === activeVideoScene.key) : -1;
@@ -871,6 +873,9 @@ export default function App() {
     return () => {
       if (toastTimerRef.current) {
         clearTimeout(toastTimerRef.current);
+      }
+      if (scanTimerRef.current) {
+        clearTimeout(scanTimerRef.current);
       }
     };
   }, []);
@@ -998,9 +1003,16 @@ export default function App() {
     if (Date.now() < suppressScanUntilRef.current) {
       return;
     }
+    if (scanInFlightRef.current) {
+      return;
+    }
     if (!targetId || !memories[targetId]) return;
+    scanInFlightRef.current = true;
     setView('scanning');
-    setTimeout(() => {
+    if (scanTimerRef.current) {
+      clearTimeout(scanTimerRef.current);
+    }
+    scanTimerRef.current = setTimeout(() => {
       triggerHapticSuccess(); // 触发触感和声效反馈
       const idToUnlock = targetId;
       setMemories(prev => ({
@@ -1013,6 +1025,8 @@ export default function App() {
       if (DEMO_CONFIG.video && videoSceneKey === 'scan') {
         setVideoSceneKey('reveal');
       }
+      scanInFlightRef.current = false;
+      scanTimerRef.current = null;
     }, DEMO_CONFIG.video ? 1200 : 1800);
   };
 
@@ -1172,10 +1186,10 @@ export default function App() {
   };
 
   return (
-    <div className="h-[100dvh] w-full bg-slate-950 flex items-center justify-center p-0 md:p-6 font-sans overflow-hidden text-slate-900">
+    <div className="h-[100dvh] w-full bg-slate-950 flex items-center justify-center p-0 md:p-6 font-sans overflow-hidden text-slate-900 [padding-bottom:env(safe-area-inset-bottom)]">
       
       {/* 核心容器：锁定高级的 10:19.5 旗舰机比例 */}
-      <div className="relative h-full md:h-[min(844px,92vh)] aspect-[10/19.5] bg-slate-50 md:rounded-[3.5rem] md:shadow-[0_40px_100px_rgba(0,0,0,0.8)] overflow-hidden flex flex-col md:border-[10px] border-slate-900 transition-all duration-300">
+      <div className="relative h-full max-h-[100dvh] md:h-[min(844px,92vh)] aspect-[10/19.5] bg-slate-50 md:rounded-[3.5rem] md:shadow-[0_40px_100px_rgba(0,0,0,0.8)] overflow-hidden flex flex-col md:border-[10px] border-slate-900 transition-all duration-300">
         
         {DEMO_CONFIG.video && activeVideoScene && (
           <VideoSceneOverlay
