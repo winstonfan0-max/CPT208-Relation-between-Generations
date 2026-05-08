@@ -1,16 +1,19 @@
 # AI Logs
 
-如果你们在系统开发中使用了 AI coding，请把主要 prompt 和验证过程记录在这个文件夹中。
+This folder records the substantive AI-assisted coding sessions that contributed to the TimeLens prototype, in line with the CPT208 AI policy (PDF p.2). Each session log captures the prompt pattern, what we accepted vs. rejected from the AI's response, and how we verified the result.
 
-## 这个文件夹当前的作用
-- 记录本次会话中新增加的 demo-support 改动
-- 提醒团队补回历史上用于生成核心组件的 prompt
+## Session index
 
-## 你们还需要补的内容
-- 之前生成主系统结构、3D 组件、样式或交互逻辑时使用过的 prompt
-- 你们如何验证 AI 生成代码满足用户需求
-- 你们如何检查可访问性、偏差或逻辑问题
+| Date | Topic | File |
+|---|---|---|
+| 2026-03-25 | 3D scene scaffold (React Three Fiber pocket-watch) | `session-2026-03-25.md` |
+| 2026-03-28 | NFC integration with manual fallback (`useNfcReader` hook) | `session-2026-03-28.md` |
+| 2026-04-02 | Responsive grid + accessibility (portfolio CSS) | `session-2026-04-02.md` |
+| 2026-04-06 | Demo-state seeding for screenshots and poster assets | `session-2026-04-06.md` |
 
-建议每个会话一个 markdown 文件，例如：
-- `session-2026-04-06.md`
-- `session-2026-04-07.md`
+## Conventions for new entries
+
+- File naming: `session-YYYY-MM-DD.md` (one file per session)
+- Every entry must include the four headings: **User request summary**, **Prompt used**, **Changes we accepted vs. rejected**, **Verification performed**
+- Paraphrase prompts when the original was very long &mdash; the goal is auditability, not verbatim reproduction
+- If a prompt produced code we ultimately rejected, still record it: the rejection itself is part of the audit trail
