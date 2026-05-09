@@ -1,23 +1,19 @@
-# AI Coding Logs
+# AI Logs
 
-This folder records the **primary AI prompts** used to implement core system components,
-as required by the CPT208 system submission guideline (`/ai-logs` for vibe coding evidence).
+This folder records the substantive AI-assisted coding sessions that contributed to the TimeLens prototype, in line with the CPT208 AI policy (PDF p.2). Each session log captures the prompt pattern, what we accepted vs. rejected from the AI's response, and how we verified the result.
 
-## Model Used
+## Session index
 
-- **Gemini 2.5 Flash** (Google Gemini)
-- Usage mode: code scaffolding, debugging support, and UI refinement suggestions
+| Date | Topic | File |
+|---|---|---|
+| 2026-03-25 | 3D scene scaffold (React Three Fiber pocket-watch) | `session-2026-03-25.md` |
+| 2026-03-28 | NFC integration with manual fallback (`useNfcReader` hook) | `session-2026-03-28.md` |
+| 2026-04-02 | Responsive grid + accessibility (portfolio CSS) | `session-2026-04-02.md` |
+| 2026-04-06 | Demo-state seeding for screenshots and poster assets | `session-2026-04-06.md` |
 
-## What is documented here
+## Conventions for new entries
 
-1. How the team split our own prototype design into implementation modules.
-2. The main prompts used for each core component.
-3. How generated code was verified against user requirements.
-4. Basic risk checks (mobile usability, accessibility, and logic consistency).
-
-## File Index
-
-- `core-component-prompts-gemini25flash.md`  
-  Main prompt log for each core module.
-- `session-2026-04-06.md`  
-  Session change summary and validation snapshot.
+- File naming: `session-YYYY-MM-DD.md` (one file per session)
+- Every entry must include the four headings: **User request summary**, **Prompt used**, **Changes we accepted vs. rejected**, **Verification performed**
+- Paraphrase prompts when the original was very long &mdash; the goal is auditability, not verbatim reproduction
+- If a prompt produced code we ultimately rejected, still record it: the rejection itself is part of the audit trail

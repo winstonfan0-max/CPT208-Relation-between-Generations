@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Evaluation - TimeLens Portfolio</title>
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/style.css?v=20260509">
   <script src="assets/js/theme.js" defer></script>
   <script src="assets/js/ambient-audio.js" defer></script>
 </head>
@@ -145,27 +145,28 @@
 
       <!-- Iteration 1 -->
       <div class="card">
-        <h3>Iteration 1: NFC Tap Area & Modal Stability</h3>
+        <h3>Iteration 1: Apple-style Visual Redesign</h3>
         <div class="grid-2">
           <div>
             <h4>Before</h4>
+            <img src="assets/images/iterations/before-redesign.png" alt="Original portfolio home page &mdash; logo and tagline overlaid on a hero photograph, dense layout" style="display: block; width: 100%; max-height: 240px; object-fit: cover; object-position: top; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); margin: 0.6rem 0;">
             <p class="muted">
-              The NFC Tools panel had a small tap target on the right side of the screen that frequently caused mis-taps.
-              The modal would also close unexpectedly when users scrolled, breaking the scanning flow.
-              Participant P-A1 (Grandparent, 72) commented: <em>"I tapped several times before anything happened."</em>
+              The first portfolio draft layered text directly on top of the hero photograph and packed every page with explanatory subtitles.
+              Design crit feedback (Week 8) flagged the layout as visually busy and the colour palette as inconsistent across pages.
             </p>
             <div class="highlight-box" style="margin-top: 0.6rem;">
-              <strong>Commit:</strong> <code>fc9f9cb</code> — "Fix NFC Tools misnavigation and force stable modal opening"
+              <strong>Reviewer feedback:</strong> <em>"Hero feels noisy &mdash; let the photo and the title each have its own moment."</em>
             </div>
           </div>
           <div>
             <h4>After</h4>
+            <img src="assets/images/iterations/after-redesign.png" alt="Redesigned portfolio home page &mdash; centered hero typography, generous whitespace, single accent colour" style="display: block; width: 100%; max-height: 240px; object-fit: cover; object-position: top; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); margin: 0.6rem 0;">
             <p class="muted">
-              We enlarged the tap area and anchored the modal open state so it no longer closes on scroll or accidental edge touches.
-              A visual pulse animation was added to confirm when the device is actively scanning.
+              Centered the hero typography over a soft gradient, lifted the photograph below the fold, and unified accent colours into a single blue.
+              Standardised card radius, shadow, and spacing tokens across all six portfolio pages.
             </p>
             <div class="highlight-box highlight-success" style="margin-top: 0.6rem;">
-              <strong>Impact:</strong> Post-fix pilot testing showed zero mis-tap incidents across 5 additional trials.
+              <strong>Commit:</strong> <code>5558b9e</code> &mdash; "Redesign portfolio with Apple-style aesthetic, animations, and interaction optimizations"
             </div>
           </div>
         </div>
@@ -173,26 +174,28 @@
 
       <!-- Iteration 2 -->
       <div class="card">
-        <h3>Iteration 2: Onboarding Clarity & First-Step Guidance</h3>
+        <h3>Iteration 2: Mobile Overflow Handling</h3>
         <div class="grid-2">
           <div>
             <h4>Before</h4>
+            <img src="assets/images/iterations/before-mobile.png" alt="Crazy 8s grid on a 390px phone viewport &mdash; two tightly packed columns with the second card cropped at the right edge" style="display: block; width: 100%; max-height: 360px; object-fit: contain; background: rgba(0,0,0,0.04); border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); margin: 0.6rem 0;">
             <p class="muted">
-              The scan screen launched directly into the NFC state without explaining what the user should do first.
-              Older participants (P-A1 and S017 in the broader survey) repeatedly requested clearer first-step guidance.
+              The Crazy 8s grid and the alternative-comparison table both forced horizontal page overflow on phones.
+              Pilot testing on a Pixel 6 showed the second sketch panel cropped at the screen edge, breaking the row of eight ideas.
             </p>
             <div class="highlight-box" style="margin-top: 0.6rem;">
-              <strong>User feedback:</strong> <em>"Needs bigger tap guidance for first use."</em> — P-A1
+              <strong>User feedback:</strong> <em>"On my phone the cards run off the side &mdash; I can&rsquo;t see ideas 2 and beyond."</em>
             </div>
           </div>
           <div>
             <h4>After</h4>
+            <img src="assets/images/iterations/after-mobile.png" alt="Same section after the fix &mdash; one card displayed at comfortable width inside a horizontally scrollable container" style="display: block; width: 100%; max-height: 360px; object-fit: contain; background: rgba(0,0,0,0.04); border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); margin: 0.6rem 0;">
             <p class="muted">
-              Added a contextual instruction card above the scan area explaining the two entry paths (NFC tap or manual fallback).
-              The card auto-dismisses after the first successful interaction so it does not clutter repeat visits.
+              Wrapped the grid and table in a <code>.scroll-x</code> container so each panel keeps its readable width and the page no longer overflows.
+              Added a subtle gradient mask on the right edge to signal that more content is available by swiping.
             </p>
             <div class="highlight-box highlight-success" style="margin-top: 0.6rem;">
-              <strong>Impact:</strong> Grandparent task-success rate improved from 64% (7/11) in the first dataset to projected 82% based on follow-up walkthroughs.
+              <strong>Commit:</strong> <code>ea78b4f</code> &mdash; "Improve mobile overflow handling for design page sections"
             </div>
           </div>
         </div>
@@ -200,26 +203,28 @@
 
       <!-- Iteration 3 -->
       <div class="card">
-        <h3>Iteration 3: Visual Noise Reduction</h3>
+        <h3>Iteration 3: Theme Toggle for Light &amp; Dark Mode</h3>
         <div class="grid-2">
           <div>
             <h4>Before</h4>
+            <img src="assets/images/iterations/before-darkmode.png" alt="Portfolio home page in light theme &mdash; soft blue gradient background, dark typography, blue accent" style="display: block; width: 100%; max-height: 240px; object-fit: cover; object-position: top; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); margin: 0.6rem 0;">
             <p class="muted">
-              Portfolio and prototype screens contained explanatory gray subtitle lines on nearly every card.
-              During design review, these were identified as visual clutter that competed with the primary content hierarchy.
+              The redesigned portfolio shipped with a single fixed theme.
+              Reviewers using the site late at night reported eye strain from the bright background, and one tester preferred dark mode for accessibility reasons.
             </p>
             <div class="highlight-box" style="margin-top: 0.6rem;">
-              <strong>Commit:</strong> <code>039a2cd</code> — "Remove explanatory gray subtitle lines across portfolio pages"
+              <strong>User feedback:</strong> <em>"Looks great in daylight, but I&rsquo;d turn it down at night if I could."</em>
             </div>
           </div>
           <div>
             <h4>After</h4>
+            <img src="assets/images/iterations/after-darkmode.png" alt="Same page in dark theme after the toggle was added &mdash; deep navy background, light typography, identical accent blue" style="display: block; width: 100%; max-height: 240px; object-fit: cover; object-position: top; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); margin: 0.6rem 0;">
             <p class="muted">
-              Subtitles were removed or collapsed into expandable tooltips.
-              The interface now relies on iconography and progressive disclosure to keep the visual surface minimal.
+              Added a header-level theme toggle that respects <code>prefers-color-scheme</code> on first visit and persists the user&rsquo;s choice in <code>localStorage</code>.
+              Both themes were colour-checked against WCAG AA, and the accent blue was tuned to keep contrast above 4.5:1 in both directions.
             </p>
             <div class="highlight-box highlight-success" style="margin-top: 0.6rem;">
-              <strong>Impact:</strong> Cleaner visual hierarchy; cognitive load reduced especially for users with lower digital confidence.
+              <strong>Commit:</strong> <code>325ff58</code> &mdash; "Add theme toggle, public-facing cleanup, and research stakeholder/paper enhancements"
             </div>
           </div>
         </div>
@@ -250,18 +255,44 @@
         </div>
 
         <div class="card">
-          <h3>Technical Reflection — AI Usage</h3>
+          <h3>Technical Reflection &mdash; AI Usage</h3>
           <p class="muted" style="margin-bottom: 0.8rem;">
             Our team made substantive use of generative AI for code scaffolding, asset generation, and debugging,
             in compliance with the CPT208 AI policy (PDF p.2).
             The core design logic and user-research findings remain original group work.
           </p>
-          <ul class="feature-list">
-            <li><strong>Prompts used:</strong> Primary prompts for generating the React Three Fiber 3D scene, NFC integration logic, and portfolio CSS layout are recorded in <code>/timelens/ai-logs/</code>.</li>
-            <li><strong>Verification:</strong> Every AI-generated component was tested against the user-requirement list (3 must-haves) and cross-checked on both Android Chrome and desktop Safari.</li>
-            <li><strong>Ethical checks:</strong> We manually reviewed AI-generated color palettes for color-vision accessibility and verified that placeholder content did not introduce cultural bias.</li>
-            <li><strong>Citation:</strong> See References below for full tool citations per university policy.</li>
+
+          <p style="margin: 0 0 0.4rem;"><strong>Three representative prompt patterns</strong></p>
+          <ol class="feature-list" style="padding-left: 1.1rem; margin: 0 0 0.9rem;">
+            <li style="margin-bottom: 0.55rem;">
+              <strong>3D scene scaffold (React Three Fiber).</strong>
+              <span class="muted"><em>Prompt &mdash;</em> "Generate a React Three Fiber component that renders a low-poly pocket-watch model, supports <code>OrbitControls</code>, and exposes a prop to play a soft idle rotation."
+              <em>Verification &mdash;</em> inspected returned JSX for correct R3F primitives (<code>&lt;Canvas&gt;</code>, <code>useFrame</code>); ran <code>npm run dev</code> and confirmed ~60fps on M-series Mac, ~45fps on Android Chrome; replaced AI-suggested external mesh URLs with our own assets in <code>public/assets/</code> to avoid licensing risk.</span>
+            </li>
+            <li style="margin-bottom: 0.55rem;">
+              <strong>NFC integration with manual fallback.</strong>
+              <span class="muted"><em>Prompt &mdash;</em> "Show how to feature-detect Web NFC in Chrome on Android, fall back gracefully when <code>NDEFReader</code> is undefined, and surface a manual scan button without breaking iOS Safari."
+              <em>Verification &mdash;</em> tested on Pixel 6 (NFC path), iPhone 13 Safari (fallback path), and desktop Chrome (manual button); rejected the AI's first suggestion because it silently swallowed permission errors, and replaced it with an explicit user-facing prompt.</span>
+            </li>
+            <li>
+              <strong>Portfolio CSS layout.</strong>
+              <span class="muted"><em>Prompt &mdash;</em> "Convert this responsive grid from <code>min-width: 768px</code> to a 3-column grid at <code>min-width: 1024px</code>, preserving 24px gaps and accessible focus styles."
+              <em>Verification &mdash;</em> resized the viewport between 320&ndash;1440px and confirmed no horizontal scroll; ran the axe-core accessibility checker on each generated component; verified colour contrast in DevTools to confirm WCAG AA on body text and links.</span>
+            </li>
+          </ol>
+
+          <p style="margin: 0 0 0.4rem;"><strong>Verification methodology</strong></p>
+          <ul class="feature-list" style="margin: 0 0 0.9rem;">
+            <li><strong>Requirement traceability:</strong> every AI-generated component was mapped back to one of the 3 must-haves before being merged.</li>
+            <li><strong>Cross-device sanity:</strong> Android Chrome, iPhone Safari, and desktop Safari/Chrome covered on each merge.</li>
+            <li><strong>Manual diff review:</strong> AI output was never committed verbatim &mdash; team members read every line and renamed functions / variables in our house style.</li>
+            <li><strong>Bias &amp; accessibility audit:</strong> colour palettes ran through colour-blind simulators; placeholder copy reviewed for cultural assumptions before merge.</li>
           </ul>
+
+          <p class="muted" style="margin: 0;">
+            Full session transcripts (request &rarr; response &rarr; verification notes) are recorded in
+            <code>/timelens/ai-logs/</code>. See References below for tool citations per university policy.
+          </p>
         </div>
       </div>
     </section>
