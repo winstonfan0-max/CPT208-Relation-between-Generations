@@ -221,7 +221,8 @@
         lightboxImg.src = '';
         document.body.style.overflow = '';
       }
-      document.querySelectorAll('img:not(#lightbox-img)').forEach((img) => {
+      document.querySelectorAll('.crazy8-item img').forEach((img) => {
+        img.style.cursor = 'zoom-in';
         img.addEventListener('click', function() {
           if (this.src) openLightbox(this.src);
         });
